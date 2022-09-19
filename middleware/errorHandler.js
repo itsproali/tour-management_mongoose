@@ -1,5 +1,7 @@
 const errorHandler = (err, req, res, next) => {
-  res.send(err.message);
+  if (err) {
+    res.status(400).send({ success: false, message: err.message });
+  }
 };
 
-module.exports = errorHandler
+module.exports = errorHandler;
